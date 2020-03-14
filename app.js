@@ -19,6 +19,55 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static('public'));
 
+//test
+
+let projects = [{
+  name: "Test Project",
+  caption: "This is a test project for testing purposes",
+  imgSrc: "https://picsum.photos/200/350"
+},
+{
+  name: "Test Project",
+  caption: "This is a test project for testing purposes",
+  imgSrc: "https://picsum.photos/200/350"
+},
+{
+  name: "Test Project",
+  caption: "This is a test project for testing purposes",
+  imgSrc: "https://picsum.photos/200/350"
+},
+{
+  name: "Test Project",
+  caption: "This is a test project for testing purposes",
+  imgSrc: "https://picsum.photos/200/350"
+},
+{
+  name: "Test Project",
+  caption: "This is a test project for testing purposes",
+  imgSrc: "https://picsum.photos/200/350"
+},
+{
+  name: "Test Project",
+  caption: "This is a test project for testing purposes",
+  imgSrc: "https://picsum.photos/200/350"
+},
+{
+  name: "Test Project",
+  caption: "This is a test project for testing purposes",
+  imgSrc: "https://picsum.photos/200/350"
+},
+{
+  name: "Test Project",
+  caption: "This is a test project for testing purposes",
+  imgSrc: "https://picsum.photos/200/350"
+},
+{
+  name: "Test Project",
+  caption: "This is a test project for testing purposes",
+  imgSrc: "https://picsum.photos/200/350"
+}
+];
+
 //Setup database
 
 mongoose.connect('mongodb://localhost:27017/content', {
@@ -32,7 +81,14 @@ const Schema = mongoose.Schema;
 
 app.route("/")
   .get(function(req, res) {
-    res.render("index.ejs");
+    res.render("index.ejs", {projects: projects});
+  });
+
+app.route("/blog")
+  .get(function(req, res) {
+    res.render("blog.ejs", {
+      posts: posts
+    });
   });
 
 //server start

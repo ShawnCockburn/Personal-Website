@@ -1,3 +1,44 @@
 <%- include("partials/header"); -%>
-<h1 class="text-center">Shawn Cockburn's Personal Website</h1>
-<%- include("partials/footer"); -%>
+<!-- Title -->
+<div class="row">
+  <div class="col-lg-6">
+
+    <h1>I am a <span id="developerType"></span></h1>
+    <h1>developer.</h1>
+    <button type="button" class="btn btn-dark btn-lg call-to-action-button" onclick="window.location.href='#projects'"><i class="fas fa-code"></i> My Work</button>
+    <button type="button" class="btn btn-outline-light btn-lg call-to-action-button" onclick="window.location.href='https://github.com/ShawnCockburn'"><i class="fab fa-github"></i> Github</button>
+  </div>
+  <div class="col-lg-6">
+    <img src="images/undraw_code_thinking_1jeh.svg" alt="code-thinking" id="codeThinking">
+  </div>
+</div>
+</div>
+</section>
+
+<!-- projects -->
+
+<section id="projects">
+
+  <div class="container-lg">
+    <h2 class="my-work">Projects</h2>
+    <div class="row">
+      <%  projects.forEach(function(project){ %>
+      <div class="col-lg-4 col-md-4 col-sm-auto align-self-center project-box">
+        <div style="background-image: url('<%=project.imgSrc%>');" class="project-card">
+          <div class="inner-project-text">
+            <h3><%=project.name%>.</h3>
+            <p><%=project.caption%>.</p>
+          </div>
+        </div>
+      </div>
+        <% }) %>
+    </div>
+
+  </div>
+</section>
+
+
+  <script type="text/javascript" src="js/developerTextCycler.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+  <script type="text/javascript" src="js/tiltFx.js"></script>
+  <%- include("partials/footer"); -%>
