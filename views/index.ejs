@@ -23,11 +23,11 @@
     <h2 class="my-work">Projects</h2>
     <div class="row">
       <%  projects.forEach(function(project){ %>
-      <div class="col-lg-4 col-md-4 col-sm-auto align-self-center project-box">
+      <div class="col-lg-4 col-md-4 col-sm-auto align-self-center project-box" style="transform-style: preserve-3d;">
         <div style="background-image: url('<%=project.imgSrc%>');" class="project-card">
-          <div class="inner-project-text">
+          <div class="inner-project-text" style="transform: translateZ(40px) translateX(12px); position: absolute;">
             <h3><%=project.name%>.</h3>
-            <p><%=project.caption%>.</p>
+            <p><%=project.caption.slice(0, 35)%>...</p>
           </div>
         </div>
       </div>
