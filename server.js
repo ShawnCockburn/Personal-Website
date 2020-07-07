@@ -22,6 +22,14 @@ app.use("/assets", express.static('assets'));
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 
+//force ssl
+app.get('*',(req,res,next) => {
+    if(req.headers['x-forwarded-proto']!='https')
+      res.redirect('https://shawncockburn.co.uk'+req.url)
+    else
+      next();
+  })
+
 app.get("/", (req, res) => {
     github.projects().then(projects => res.render("index", {githubProjects: projects}));    
 });
