@@ -1,5 +1,6 @@
 // Dependencies
 const fs = require('fs');
+const http = require('http');
 const https = require('https');
 const express = require('express');
 const github = require("./util/githubProjects");
@@ -30,10 +31,17 @@ app.get("/", (req, res) => {
     
 // });
 
+// Starting http server
+const httpServer = https.createServer(app);
+const httpport = 80;
+httpServer.listen(httpport, () => {
+	console.log('HTTP Server running');
+});
+
 // Starting https server
 const httpsServer = https.createServer(credentials, app);
-const port = 443;
-httpsServer.listen(port, () => {
+const httpsport = 443;
+httpsServer.listen(httpsport, () => {
 	console.log('HTTPS Server running');
 });
 
