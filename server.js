@@ -25,7 +25,7 @@ app.set("views", __dirname + "/views");
 //force ssl
 app.get('*',(req,res,next) => {
     if(req.headers['x-forwarded-proto']!='https')
-      res.redirect('https://shawncockburn.co.uk'+req.url)
+      res.redirect('https://www.shawncockburn.co.uk'+req.url)
     else
       next();
   })
