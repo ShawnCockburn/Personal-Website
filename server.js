@@ -1,9 +1,10 @@
 // Dependencies
 const fs = require('fs');
-const http = require('http');
 const https = require('https');
 const express = require('express');
 const github = require("./util/githubProjects");
+
+const app = express();
 
 // Certificate
 const privateKey = fs.readFileSync('./SSL/private_key.key', 'utf8');
