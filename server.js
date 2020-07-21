@@ -16,10 +16,12 @@ const sslServer = () => {
     // Certificate
     const privateKey = fs.readFileSync('./SSL/private_key.key', 'utf8');
     const certificate = fs.readFileSync('./SSL/ssl_certificate.cer', 'utf8');
+    const intermediateCertificate = fs.readFileSync('./SSL/ssl_intermediate_certificate.cer', 'utf8');
 
     const credentials = {
         key: privateKey,
-        cert: certificate
+        cert: certificate,
+        ca: intermediateCertificate
     };
 
     //prevent click jacking
