@@ -11,6 +11,7 @@ My Personal Developer Website:
 * Frontend
   * HTML
   * CSS
+  * Bootstrap
   * Javascript
   * TiltJS
   * Font awesome
