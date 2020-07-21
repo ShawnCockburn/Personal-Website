@@ -6,7 +6,11 @@ const http = require('http');
 const https = require('https');
 const express = require('express');
 const github = require("./util/githubProjects");
+const frameguard = require('frameguard');
 const app = express();
+
+//XSS
+app.disable('x-powered-by');
 
 const sslServer = () => {
     // Certificate
@@ -17,6 +21,9 @@ const sslServer = () => {
         key: privateKey,
         cert: certificate
     };
+
+    //prevent click jacking
+    app.use(frameguard({ action: 'SAMEORIGIN' }))
 
     // Starting http server
     const httpServer = http.createServer(app);
