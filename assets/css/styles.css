@@ -120,7 +120,7 @@ a:hover {
   }
 
   .hero-text h1 {
-    font-size: 30px;
+    font-size: 50px;
   }
   .hero-text p {
     font-size: 15px;
@@ -136,11 +136,11 @@ a:hover {
 # Right Box
 --------------------------------------------------------------*/
 .right-box {
-  background-image: url("https://scontent-lht6-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/67890961_193407748344471_6491644360036665337_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com&_nc_cat=103&_nc_ohc=2gGo4od1l-8AX8rAKNt&_nc_tp=19&oh=7047872cc2a58da953c37afa2acf0f12&oe=5F8CFAD8");
+  background-image: url("/assets/img/ShawnCockburn.jpg");
   background-size: cover;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1100px) {
   .right-box {
     display: none;
   }
