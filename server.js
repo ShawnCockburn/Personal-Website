@@ -5,7 +5,6 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 const express = require('express');
-const github = require("./util/githubProjects");
 const frameguard = require('frameguard');
 const app = express();
 
@@ -64,7 +63,7 @@ if (!devTest) app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-    github.projects().then(projects => res.render("index", { githubProjects: projects }));
+    res.render("index");
 });
 
 
@@ -74,5 +73,3 @@ if (!devTest) {
 } else {
     testServer();
 }
-
-

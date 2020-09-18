@@ -1,5 +1,5 @@
 # Personal-Website
-My Personal Developer Website:
+My Personal Website:
 
 [shawncockburn.co.uk](https://www.shawncockburn.co.uk/)
 
@@ -7,13 +7,11 @@ My Personal Developer Website:
   * Node.JS
   * Express.JS
   * EJS Templating
-  * Github API
 * Frontend
   * HTML
   * CSS
   * Bootstrap
   * Javascript
-  * TiltJS
   * Font awesome
   * Google Fonts
 
