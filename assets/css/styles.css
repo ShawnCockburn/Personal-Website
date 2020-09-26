@@ -10,9 +10,9 @@ html {
 
 ::-webkit-scrollbar {
   width: 0px;
-  /* remove scrollbar space */
-  /* background: transparent; optional: just make scrollbar invisible  */
 }
+
+/* general */
 
 body {
   font-family: 'Helvetica Neue', 'Roboto', sans-serif;
@@ -59,6 +59,8 @@ a:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
+
 
 /*--------------------------------------------------------------
 # Left Box
