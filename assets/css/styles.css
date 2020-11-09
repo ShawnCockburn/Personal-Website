@@ -134,6 +134,14 @@ a:hover {
   }
 }
 
+@media (max-width: 350px) {
+
+  .hero-text h1 {
+    font-size: 40px;
+  }
+
+}
+
 /*--------------------------------------------------------------
 # Right Box
 --------------------------------------------------------------*/
@@ -142,8 +150,23 @@ a:hover {
   background-size: cover;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .right-box {
-    display: none;
+    /* display: none; */
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+}
+
+@media (max-height: 650px) {
+  .right-box {
+    top: 8%; 
+    width: 100px;
+    height: 100px;
   }
 }
