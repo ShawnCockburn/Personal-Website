@@ -15,4 +15,8 @@ My Personal Website:
   * Font awesome
   * Google Fonts
 
-![Image of shawncockburn.co.uk homepage](https://i.imgur.com/3DNhPjS.jpg)
+Desktop:
+![Image of shawncockburn.co.uk homepage](https://i.imgur.com/QNVo8kX.jpg)
+
+Mobile:
+![Image of shawncockburn.co.uk homepage](https://i.imgur.com/MtsZdgL.png)
