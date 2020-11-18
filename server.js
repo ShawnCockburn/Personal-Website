@@ -1,4 +1,5 @@
 const devTest = process.env.dev;
+const port = process.env.port;
 
 // Dependencies
 const fs = require('fs');
@@ -50,6 +51,15 @@ const testServer = () => {
     });
 };
 
+const customServer = () => {
+    // Starting custom http server
+    const httpTestServer = http.createServer(app);
+    // const httpTestPort = 3000;
+    httpTestServer.listen(port, () => {
+        console.log('HTTP custom server running on port: ' + port);
+    });
+};
+
 //app
 
 app.use("/assets", express.static('assets'));
@@ -68,8 +78,10 @@ app.get("/", (req, res) => {
 
 
 //check if started in dev mode
-if (!devTest) {
+if (!devTest && !port) {
     sslServer();
-} else {
+} else if (port) { 
+    customServer();
+}else {
     testServer();
 }
