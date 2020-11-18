@@ -1,4 +1,5 @@
 const devTest = process.env.dev;
+const envPort = process.env.port;
 
 // Dependencies
 const fs = require('fs');
@@ -41,12 +42,11 @@ const sslServer = () => {
     });
 };
 
-const testServer = () => {
+const httpServer = port => {
     // Starting http test server
-    const httpTestServer = http.createServer(app);
-    const httpTestPort = 3000;
-    httpTestServer.listen(httpTestPort, () => {
-        console.log('HTTP test server running on port: ' + httpTestPort);
+    const httpExpressServer = http.createServer(app);
+    httpExpressServer.listen(port, () => {
+        console.log('HTTP server running on port: ' + port);
     });
 };
 
@@ -56,8 +56,8 @@ app.use("/assets", express.static('assets'));
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 
-//force ssl if in preduction
-if (!devTest) app.use((req, res, next) => {
+//force ssl if in production
+if (!devTest && !envPort) app.use((req, res, next) => {
     if (req.connection.encrypted) return next();
     res.redirect(301, 'https://' + req.headers.host + req.url);
 });
@@ -68,8 +68,8 @@ app.get("/", (req, res) => {
 
 
 //check if started in dev mode
-if (!devTest) {
+if (!devTest && !envPort) {
     sslServer();
 } else {
-    testServer();
+    envPort ? httpServer(envPort) : httpServer(3000);
 }
