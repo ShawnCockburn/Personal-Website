@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import propTypes from "prop-types"
 
 /**
  * H1 Component
