@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: unset;
+  padding: unset;
+  height: 100vh;
+  width: 100vw;
+  background-color: #001220;
+  font-family: "Lemon/Milk light", sans-serif;
+  color: #fafafa;
+  overflow: hidden;
+}
+p {
+  font-weight: 400;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  z-index: 9999;
+
+  .main {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+    @media all and (max-width: 500px) {
+      h1 {
+        font-size: x-large;
+      }
+      p {
+        font-size: small;
+      }
+    }
+    @media all and (max-width: 370px) {
+      h1 {
+        font-size: large;
+      }
+      p {
+        font-size: x-small;
+      }
+    }
+    .hero-text {
+      text-align: center;
+      margin-right: 1rem;
+    }
+    .img {
+      background-image: url(/assets/img/shawn.jpg);
+      width: 120px;
+      height: 120px;
+      background-size: cover;
+      border-radius: 50%;
+
+      @media all and (max-width: 500px) {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+  .buttons {
+    all: unset;
+    display: flex;
+    a {
+      all: unset;
+      padding: 0.5rem 1rem;
+      border-radius: 0.6rem;
+      border: thin solid #fafafa;
+      transition: all 200ms;
+      cursor: pointer;
+      margin: 0 0.7em;
+      @media all and (max-width: 699px) {
+        margin: 0 0.3em;
+        font-size: small;
+      }
+      @media all and (max-width: 370px) {
+        font-size: x-small;
+      }
+    }
+    a:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.wave {
+  z-index: 1;
+  bottom: 0;
+  width: 150%;
+  height: 55%;
+  position: absolute;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    pointer-events: all;
+  }
+  path {
+    transition: all 500ms;
+  }
+  path:hover {
+    transform: scaleY(1.1);
+  }
+}
+
+.fadein {
+  animation: fadein ease-in-out 2s;
+  animation-delay: 200ms;
+}
+.downin {
+  animation: downin ease-in-out 2s;
+  animation-delay: 200ms;
+}
+.upin {
+  animation: upin ease-in-out 2s;
+  animation-delay: 200ms;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes downin {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes upin {
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

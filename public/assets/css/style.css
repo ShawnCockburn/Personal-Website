@@ -1,0 +1,248 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: unset;
+  padding: unset;
+  height: 100vh;
+  width: 100vw;
+  background-color: #001220;
+  font-family: "Lemon/Milk light", sans-serif;
+  color: #fafafa;
+  overflow: hidden;
+}
+
+p {
+  font-weight: 400;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  z-index: 9999;
+}
+
+.hero .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 3rem;
+}
+
+.hero .main h1 {
+  font-size: 2.5rem;
+}
+
+.hero .main p {
+  font-size: 1.1rem;
+}
+
+@media all and (max-width: 500px) {
+  .hero .main h1 {
+    font-size: x-large;
+  }
+  .hero .main p {
+    font-size: small;
+  }
+}
+
+@media all and (max-width: 370px) {
+  .hero .main h1 {
+    font-size: large;
+  }
+  .hero .main p {
+    font-size: x-small;
+  }
+}
+
+.hero .main .hero-text {
+  text-align: center;
+  margin-right: 1rem;
+}
+
+.hero .main .img {
+  background-image: url(/assets/img/shawn.jpg);
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+@media all and (max-width: 500px) {
+  .hero .main .img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.hero .buttons {
+  all: unset;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.hero .buttons a {
+  all: unset;
+  padding: 0.5rem 1rem;
+  border-radius: 0.6rem;
+  border: thin solid #fafafa;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  cursor: pointer;
+  margin: 0 0.7em;
+}
+
+@media all and (max-width: 699px) {
+  .hero .buttons a {
+    margin: 0 0.3em;
+    font-size: small;
+  }
+}
+
+@media all and (max-width: 370px) {
+  .hero .buttons a {
+    font-size: x-small;
+  }
+}
+
+.hero .buttons a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.wave {
+  z-index: 1;
+  bottom: 0;
+  width: 150%;
+  height: 55%;
+  position: absolute;
+}
+
+.wave svg {
+  width: 100%;
+  height: 100%;
+  pointer-events: all;
+}
+
+.wave path {
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+}
+
+.wave path:hover {
+  -webkit-transform: scaleY(1.1);
+          transform: scaleY(1.1);
+}
+
+.fadein {
+  -webkit-animation: fadein ease-in-out 2s;
+          animation: fadein ease-in-out 2s;
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+.downin {
+  -webkit-animation: downin ease-in-out 2s;
+          animation: downin ease-in-out 2s;
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+.upin {
+  -webkit-animation: upin ease-in-out 2s;
+          animation: upin ease-in-out 2s;
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes downin {
+  from {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes downin {
+  from {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes upin {
+  from {
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes upin {
+  from {
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+/*# sourceMappingURL=style.css.map */
