@@ -123,15 +123,12 @@ p {
 
 .fadein {
   animation: fadein ease-in-out 2s;
-  animation-delay: 200ms;
 }
 .downin {
   animation: downin ease-in-out 2s;
-  animation-delay: 200ms;
 }
 .upin {
   animation: upin ease-in-out 2s;
-  animation-delay: 200ms;
 }
 
 @keyframes fadein {
