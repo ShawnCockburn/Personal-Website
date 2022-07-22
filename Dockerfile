@@ -1,19 +1,9 @@
 FROM node:14-alpine
 
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+COPY . .
 
-WORKDIR /home/node/app
+RUN yarn
 
-COPY package*.json ./
-
-USER node
-
-RUN npm install
-
-COPY --chown=node:node . .
-
-EXPOSE 8080
-
-ENV port=8080
+RUN yarn build
 
 CMD ["node", "index.js" ]
