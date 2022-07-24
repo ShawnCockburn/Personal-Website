@@ -5,6 +5,9 @@
   "repository": "https://github.com/ShawnCockburn/Personal-Website.git",
   "author": "ShawnCockburn <shawncockburn@hotmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "./build.sh"
+  },
   "dependencies": {
     "express": "^4.17.1"
   },
