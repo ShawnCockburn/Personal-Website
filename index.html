@@ -7,10 +7,16 @@
     <title>Shawn Cockburn</title>
   </head>
   <body>
+    <div id="theme-toggle">
+      <button onclick="toggleTheme()">🌙</button>
+    </div>
     <div id="main-container">
       <header>
         <h1 id="title" class="inter-bold">Hello there 👋</h1>
-        <p class="inter-light">I'm Shawn, and this is where I link to stuff. It's my personal corner of the internet. Dive in and explore what I've been up to!</p>
+        <p class="inter-light">
+          I'm Shawn, and this is where I link to stuff. It's my personal corner
+          of the internet. Dive in and explore what I've been up to!
+        </p>
       </header>
       <main>
         <section id="links">
@@ -76,13 +82,14 @@
               </a>
             </li>
           </ul>
-          </section>
+        </section>
         <section id="contact">
           <h2>Contact</h2>
           <p>
             Email:
-            <a href="mailto:hello@shawncockburn.co.uk"
-            class="animated-text-link"
+            <a
+              href="mailto:hello@shawncockburn.co.uk"
+              class="animated-text-link"
               >hello@shawncockburn.co.uk</a
             >
           </p>
@@ -90,11 +97,47 @@
       </main>
     </div>
     <script>
-      const title = document.getElementById("title");
+      const THEMES = {
+        LIGHT: "light",
+        DARK: "dark",
+      };
+      function setThemeButton() {
+        const themeIcon = document.body.classList.contains("dark-theme")
+          ? "🌙"
+          : "☀️";
+          document.getElementById("theme-toggle").firstElementChild.textContent =themeIcon;
+      }
 
-      title.addEventListener("click", () => {
-        document.body.classList.toggle("dark-theme");
-      });
+      function toggleTheme() {
+        setTheme(document.body.classList.contains("dark-theme") ? THEMES.LIGHT : THEMES.DARK);
+      }
+
+      function setTheme(theme){
+        document.body.classList.toggle("dark-theme", theme === THEMES.DARK);
+        localStorage.setItem("theme", theme);
+        setThemeButton();
+      }
+
+      const prefersDarkScheme = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      );
+
+      const currentTheme = localStorage.getItem("theme");
+
+      document.body.classList.add('notransition'); // Disable transitions for initial theme setting
+
+      if(currentTheme != null){
+        setTheme(currentTheme);
+      } else {
+        setTheme(prefersDarkScheme.matches ? THEMES.DARK : THEMES.LIGHT);
+      }
+
+      // Enable transitions after the initial theme is set
+      setTimeout(() => {
+        document.body.classList.remove('notransition');
+      }, 100);
+
+      prefersDarkScheme.addListener((e) => setTheme(e.matches ? THEMES.DARK : THEMES.LIGHT));
     </script>
   </body>
 </html>

@@ -55,6 +55,21 @@ li {
     margin-bottom: 8px;
 }
 
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#theme-toggle button {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
 #main-container {
     width: clamp(300px, 80%, 650px);
     max-height: 100vh;
@@ -65,6 +80,13 @@ li {
     bottom: 0;
     margin: auto;
 
+}
+
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
 }
 
 /* Style for the link */
