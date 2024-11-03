@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.inter-light {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.inter-regular {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter-medium {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.inter-bold {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    color: #fafafa;
+    background-color: black;
+    position: relative;
+}
+
+ul {
+    padding-left: 18px;
+}
+li {
+    margin-bottom: 8px;
+}
+
+#main-container {
+    width: clamp(300px, 80%, 650px);
+    max-height: 100vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20vh;
+    bottom: 0;
+    margin: auto;
+
+}
+
+/* Style for the link */
+.animated-text-link {
+  transition: background-image 0.5s;
+  background-image: linear-gradient(271deg, #ff7a18, #af002d, #319197, #004ff9);
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.animated-text-link:hover {
+  background-image: linear-gradient(270deg, #ff7a18, #af002d, #319197, #004ff9);
+  animation: gradientAnimation 4s ease infinite; 
+}
+
+/* Keyframes for text gradient animation */
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
