@@ -9,7 +9,7 @@
   <body>
     <div id="main-container">
       <header>
-        <h1 class="inter-bold">Hello there 👋</h1>
+        <h1 id="title" class="inter-bold">Hello there 👋</h1>
         <p class="inter-light">I'm Shawn, and this is where I link to stuff. It's my personal corner of the internet. Dive in and explore what I've been up to!</p>
       </header>
       <main>
@@ -89,5 +89,12 @@
         </section>
       </main>
     </div>
+    <script>
+      const title = document.getElementById("title");
+
+      title.addEventListener("click", () => {
+        document.body.classList.toggle("dark-theme");
+      });
+    </script>
   </body>
 </html>
