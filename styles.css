@@ -104,6 +104,61 @@ body.vaporwave-theme {
 
   background-color: var(--vw-bg);
   color: var(--vw-text);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body.vaporwave-theme h1,
+body.vaporwave-theme h2 {
+  color: var(--vw-text);
+  text-shadow:
+    0 0 8px var(--vw-neon-pink),
+    0 0 20px var(--vw-neon-pink),
+    0 0 40px var(--vw-neon-purple);
+}
+
+body.vaporwave-theme #main-container {
+  border: 1px solid var(--vw-neon-purple);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow:
+    0 0 12px var(--vw-neon-purple),
+    0 0 40px rgba(191, 0, 255, 0.25);
+}
+
+body.vaporwave-theme section {
+  border-bottom: 1px solid rgba(191, 0, 255, 0.35);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+body.vaporwave-theme section:last-child {
+  border-bottom: none;
+}
+
+body.vaporwave-theme .animated-text-link {
+  background-image: linear-gradient(271deg, var(--vw-gradient-start), var(--vw-gradient-mid), var(--vw-gradient-end));
+}
+
+body.vaporwave-theme .animated-text-link:hover {
+  background-image: linear-gradient(270deg, var(--vw-gradient-start), var(--vw-gradient-mid), var(--vw-gradient-end));
+}
+
+body.vaporwave-theme #theme-toggle button {
+  border: 1px solid var(--vw-neon-cyan);
+  border-radius: 6px;
+  padding: 4px 10px;
+  color: var(--vw-neon-cyan);
+  box-shadow: 0 0 8px var(--vw-neon-cyan);
+  transition: box-shadow 0.3s, color 0.3s;
+}
+
+body.vaporwave-theme #theme-toggle button:hover {
+  box-shadow: 0 0 16px var(--vw-neon-cyan), 0 0 32px var(--vw-neon-purple);
+  color: var(--vw-text);
+}
+
+body.notransition.vaporwave-theme #theme-toggle button {
+  transition: none !important;
 }
 
 /* Style for the link */
