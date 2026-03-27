@@ -89,6 +89,23 @@ li {
   transition: none !important;
 }
 
+/* Vaporwave theme */
+body.vaporwave-theme {
+  --vw-bg: #0d0015;
+  --vw-surface: #1a0030;
+  --vw-text: #e8d5ff;
+  --vw-neon-pink: #ff2d78;
+  --vw-neon-cyan: #00f5ff;
+  --vw-neon-purple: #bf00ff;
+  --vw-glow: #ff2d78;
+  --vw-gradient-start: #ff2d78;
+  --vw-gradient-mid: #bf00ff;
+  --vw-gradient-end: #00f5ff;
+
+  background-color: var(--vw-bg);
+  color: var(--vw-text);
+}
+
 /* Style for the link */
 .animated-text-link {
   transition: background-image 0.5s;
