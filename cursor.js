@@ -46,6 +46,28 @@
     requestAnimationFrame(tick);
   }
 
+  // Effect 5: Mouse parallax on #main-container
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function handleParallax(e) {
+    if (prefersReducedMotion.matches) return;
+    const container = document.getElementById('main-container');
+    if (!container) return;
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    const dx = (e.clientX - cx) / cx; // -1 to 1
+    const dy = (e.clientY - cy) / cy; // -1 to 1
+    const maxDeg = 3;
+    const rotY = dx * maxDeg;
+    const rotX = -dy * maxDeg;
+    container.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+  }
+
+  function resetParallax() {
+    const container = document.getElementById('main-container');
+    if (container) container.style.transform = '';
+  }
+
   // Watch for vaporwave class toggling
   const observer = new MutationObserver(() => {
     const active = isVaporwave();
@@ -54,6 +76,12 @@
       // Snap ring to mouse so it doesn't fly in from off-screen
       ringX = mouseX;
       ringY = mouseY;
+      if (!prefersReducedMotion.matches) {
+        document.addEventListener('mousemove', handleParallax);
+      }
+    } else {
+      document.removeEventListener('mousemove', handleParallax);
+      resetParallax();
     }
   });
 
@@ -61,6 +89,9 @@
 
   // Initial state
   setVisible(isVaporwave());
+  if (isVaporwave() && !prefersReducedMotion.matches) {
+    document.addEventListener('mousemove', handleParallax);
+  }
 
   requestAnimationFrame(tick);
 })();
