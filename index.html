@@ -100,20 +100,31 @@
       const THEMES = {
         LIGHT: "light",
         DARK: "dark",
+        VAPORWAVE: "vaporwave",
       };
+      const THEME_CYCLE = [THEMES.LIGHT, THEMES.DARK, THEMES.VAPORWAVE];
+      const THEME_ICONS = { light: "☀️", dark: "🌙", vaporwave: "🌊" };
+
       function setThemeButton() {
-        const themeIcon = document.body.classList.contains("dark-theme")
-          ? "🌙"
-          : "☀️";
-          document.getElementById("theme-toggle").firstElementChild.textContent =themeIcon;
+        const current = getCurrentTheme();
+        document.getElementById("theme-toggle").firstElementChild.textContent = THEME_ICONS[current];
+      }
+
+      function getCurrentTheme() {
+        if (document.body.classList.contains("vaporwave-theme")) return THEMES.VAPORWAVE;
+        if (document.body.classList.contains("dark-theme")) return THEMES.DARK;
+        return THEMES.LIGHT;
       }
 
       function toggleTheme() {
-        setTheme(document.body.classList.contains("dark-theme") ? THEMES.LIGHT : THEMES.DARK);
+        const current = getCurrentTheme();
+        const next = THEME_CYCLE[(THEME_CYCLE.indexOf(current) + 1) % THEME_CYCLE.length];
+        setTheme(next);
       }
 
       function setTheme(theme){
         document.body.classList.toggle("dark-theme", theme === THEMES.DARK);
+        document.body.classList.toggle("vaporwave-theme", theme === THEMES.VAPORWAVE);
         localStorage.setItem("theme", theme);
         setThemeButton();
       }
@@ -139,5 +150,6 @@
 
       prefersDarkScheme.addListener((e) => setTheme(e.matches ? THEMES.DARK : THEMES.LIGHT));
     </script>
+    <script src="./cursor.js"></script>
   </body>
 </html>
