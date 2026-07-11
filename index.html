@@ -3,141 +3,227 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./styles.css" />
     <title>Shawn Cockburn</title>
+    <meta
+      name="description"
+      content="Shawn Cockburn's personal corner of the internet: blog, projects and links."
+    />
+    <meta property="og:title" content="Shawn Cockburn" />
+    <meta
+      property="og:description"
+      content="My personal corner of the internet: blog, projects and links."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#f4f4f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <script>
+      // Set the theme before first paint so there is no flash of the wrong theme.
+      (function () {
+        const saved = localStorage.getItem("theme");
+        const dark = saved
+          ? saved === "dark"
+          : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.classList.toggle("dark-theme", dark);
+      })();
+    </script>
   </head>
   <body>
-    <div id="theme-toggle">
-      <button onclick="toggleTheme()">🌙</button>
-    </div>
+    <div id="bg-glow" aria-hidden="true"></div>
+    <div id="spotlight" aria-hidden="true"></div>
+
     <div id="main-container">
-      <header>
-        <h1 id="title" class="inter-bold">Hello there 👋</h1>
-        <p class="inter-light">
-          I'm Shawn, and this is where I link to stuff. It's my personal corner
-          of the internet. Dive in and explore what I've been up to!
-        </p>
-      </header>
-      <main>
-        <section id="links">
-          <h2>Links</h2>
-          <ul>
-            <li>
-              <a
-                href="https://blog.shawncockburn.co.uk"
-                target="_blank"
-                class="animated-text-link"
-              >
-                Blog
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/shawncockburn"
-                target="_blank"
-                class="animated-text-link"
-              >
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linkedin.com/in/shawncockburn"
-                target="_blank"
-                class="animated-text-link"
-              >
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://instagram.com/shawncockburn"
-                target="_blank"
-                class="animated-text-link"
-              >
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://x.com/shawncockburn"
-                target="_blank"
-                class="animated-text-link"
-              >
-                @shawncockburn (X)
-              </a>
-            </li>
-          </ul>
-        </section>
-        <section id="code">
-          <h2>Code projects</h2>
-          <ul>
-            <li>
-              <a
-                href="https://github.com/shawncockburn/my-blog"
-                target="_blank"
-                class="animated-text-link"
-              >
-                Blog
-              </a>
-            </li>
-          </ul>
-        </section>
-        <section id="contact">
-          <h2>Contact</h2>
-          <p>
-            Email:
-            <a
-              href="mailto:hello@shawncockburn.co.uk"
-              class="animated-text-link"
-              >hello@shawncockburn.co.uk</a
-            >
+      <nav id="topbar">
+        <span class="brand mono">shawncockburn.co.uk</span>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+
+      <main class="grid">
+        <section class="card hero">
+          <div class="chips">
+            <span class="chip mono"><span class="dot"></span>open to interesting things</span>
+            <span class="chip mono">LDN <span id="clock">--:--</span></span>
+          </div>
+          <h1>Shawn<br />Cockburn</h1>
+          <p class="intro">
+            Hello there <span class="wave">👋</span> This is my personal
+            corner of the internet. I build things, write things, and link to
+            all of it from here.
           </p>
         </section>
+
+        <a class="card link-card" href="https://blog.shawncockburn.co.uk" target="_blank" rel="noopener">
+          <span class="tag mono">[01 writing]</span>
+          <span class="name">Blog</span>
+          <span class="domain mono">blog.shawncockburn.co.uk</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a class="card link-card" href="https://github.com/shawncockburn" target="_blank" rel="noopener">
+          <span class="tag mono">[02 code]</span>
+          <span class="name">GitHub</span>
+          <span class="domain mono">github.com/shawncockburn</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a class="card link-card" href="https://linkedin.com/in/shawncockburn" target="_blank" rel="noopener">
+          <span class="tag mono">[03 work]</span>
+          <span class="name">LinkedIn</span>
+          <span class="domain mono">linkedin.com/in/shawncockburn</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a class="card link-card" href="https://instagram.com/shawncockburn" target="_blank" rel="noopener">
+          <span class="tag mono">[04 photos]</span>
+          <span class="name">Instagram</span>
+          <span class="domain mono">instagram.com/shawncockburn</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a class="card link-card" href="https://x.com/shawncockburn" target="_blank" rel="noopener">
+          <span class="tag mono">[05 posts]</span>
+          <span class="name">X</span>
+          <span class="domain mono">x.com/shawncockburn</span>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <section class="card contact-card">
+          <span class="tag mono">[get in touch]</span>
+          <a class="email" href="mailto:hello@shawncockburn.co.uk">hello@shawncockburn.co.uk</a>
+          <button id="copy-email" class="chip mono" data-email="hello@shawncockburn.co.uk">
+            copy
+          </button>
+        </section>
       </main>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>let's build something ✦ writing ✦ code ✦ photos ✦ posts ✦&nbsp;</span>
+          <span>let's build something ✦ writing ✦ code ✦ photos ✦ posts ✦&nbsp;</span>
+        </div>
+      </div>
+
+      <footer>
+        <p class="mono">© <span id="year">2026</span> Shawn Cockburn</p>
+      </footer>
     </div>
+
     <script>
-      const THEMES = {
-        LIGHT: "light",
-        DARK: "dark",
-      };
-      function setThemeButton() {
-        const themeIcon = document.body.classList.contains("dark-theme")
-          ? "🌙"
-          : "☀️";
-          document.getElementById("theme-toggle").firstElementChild.textContent =themeIcon;
+      const root = document.documentElement;
+      const toggleButton = document.getElementById("theme-toggle");
+      const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      function updateToggleButton() {
+        // Show the theme the button will switch to.
+        toggleButton.textContent = root.classList.contains("dark-theme")
+          ? "☀️"
+          : "🌙";
       }
 
-      function toggleTheme() {
-        setTheme(document.body.classList.contains("dark-theme") ? THEMES.LIGHT : THEMES.DARK);
+      function applyTheme(theme) {
+        root.classList.toggle("dark-theme", theme === "dark");
+        updateToggleButton();
       }
 
-      function setTheme(theme){
-        document.body.classList.toggle("dark-theme", theme === THEMES.DARK);
-        localStorage.setItem("theme", theme);
-        setThemeButton();
+      toggleButton.addEventListener("click", () => {
+        const next = root.classList.contains("dark-theme") ? "light" : "dark";
+        localStorage.setItem("theme", next);
+        applyTheme(next);
+      });
+
+      // Follow the system theme, but only while the user hasn't picked one.
+      prefersDarkScheme.addEventListener("change", (e) => {
+        if (!localStorage.getItem("theme")) {
+          applyTheme(e.matches ? "dark" : "light");
+        }
+      });
+      updateToggleButton();
+
+      // Footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Live London clock
+      const clock = document.getElementById("clock");
+      const timeFormat = new Intl.DateTimeFormat("en-GB", {
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZone: "Europe/London",
+      });
+      function tick() {
+        clock.textContent = timeFormat.format(new Date());
+      }
+      tick();
+      setInterval(tick, 10_000);
+
+      // Cursor spotlight (skipped for touch / reduced motion)
+      if (window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion.matches) {
+        window.addEventListener("pointermove", (e) => {
+          root.style.setProperty("--mx", e.clientX + "px");
+          root.style.setProperty("--my", e.clientY + "px");
+        });
       }
 
-      const prefersDarkScheme = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      );
-
-      const currentTheme = localStorage.getItem("theme");
-
-      document.body.classList.add('notransition'); // Disable transitions for initial theme setting
-
-      if(currentTheme != null){
-        setTheme(currentTheme);
-      } else {
-        setTheme(prefersDarkScheme.matches ? THEMES.DARK : THEMES.LIGHT);
+      // Text scramble on link-card hover
+      const SCRAMBLE_CHARS = "abcdefghijklmnopqrstuvwxyz#$%&*+=<>/";
+      function scramble(el) {
+        if (prefersReducedMotion.matches || el.dataset.scrambling) return;
+        const original = el.dataset.text || (el.dataset.text = el.textContent);
+        el.dataset.scrambling = "1";
+        let frame = 0;
+        const timer = setInterval(() => {
+          frame++;
+          const revealed = Math.floor(frame / 2);
+          el.textContent = original
+            .split("")
+            .map((ch, i) =>
+              i < revealed || ch === " "
+                ? ch
+                : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]
+            )
+            .join("");
+          if (revealed >= original.length) {
+            clearInterval(timer);
+            el.textContent = original;
+            delete el.dataset.scrambling;
+          }
+        }, 30);
       }
+      document.querySelectorAll(".link-card").forEach((card) => {
+        card.addEventListener("mouseenter", () => scramble(card.querySelector(".name")));
+      });
 
-      // Enable transitions after the initial theme is set
-      setTimeout(() => {
-        document.body.classList.remove('notransition');
-      }, 100);
-
-      prefersDarkScheme.addListener((e) => setTheme(e.matches ? THEMES.DARK : THEMES.LIGHT));
+      // Copy email
+      const copyButton = document.getElementById("copy-email");
+      copyButton.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(copyButton.dataset.email);
+          copyButton.textContent = "copied ✓";
+        } catch {
+          copyButton.textContent = "nope :(";
+        }
+        setTimeout(() => (copyButton.textContent = "copy"), 1500);
+      });
     </script>
   </body>
 </html>
